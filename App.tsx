@@ -7,15 +7,20 @@
 
 import React from 'react';
 
+import {ThemeProvider} from 'styled-components/native';
+
 import {SafeAreaView, Text, View} from 'react-native';
+import theme from './src/theme';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Hello World</Text>
-      </View>
-    </SafeAreaView>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView>
+        <View>
+          <Text>Hello World</Text>
+        </View>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
 
