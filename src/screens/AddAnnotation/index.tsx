@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Alert} from 'react-native';
+import {Alert, KeyboardAvoidingView, Platform} from 'react-native';
 import moment from 'moment';
 import * as yup from 'yup';
 import {Controller, useForm} from 'react-hook-form';
@@ -18,6 +18,7 @@ import {useRealm} from '../../libs/realm/index';
 import {Annotation} from '../../libs/realm/schemas/Annotation';
 
 import {Container} from './styles';
+import {useTheme} from 'styled-components/native';
 
 interface FormDataProps {
   annotation: string;
@@ -32,6 +33,7 @@ const formSchema = yup
 export default function AddAnnotation() {
   const realm = useRealm();
   const {goBack} = useNavigation();
+  const {COLORS} = useTheme();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -85,31 +87,39 @@ export default function AddAnnotation() {
   return (
     <>
       <Header title="Nova Anotação" />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : undefined}
+        enabled
+        style={{
+          flex: 1,
+          backgroundColor: COLORS.GRAY_400,
+        }}>
+        <Container>
+          <Controller
+            control={control}
+            name="annotation"
+            render={({field: {onChange, value}}) => (
+              <Input
+                placeholder="Anotação"
+                onChangeText={onChange}
+                value={value}
+                messageError={errors.annotation?.message}
+                onSubmitEditing={handleSubmit(handleAddSamplePoints)}
+              />
+            )}
+          />
 
-      <Container>
-        <Controller
-          control={control}
-          name="annotation"
-          render={({field: {onChange, value}}) => (
-            <Input
-              placeholder="Anotação"
-              onChangeText={onChange}
-              value={value}
-              messageError={errors.annotation?.message}
-              onSubmitEditing={handleSubmit(handleAddSamplePoints)}
-            />
-          )}
-        />
-
-        <Button
-          type="PRIMARY"
-          title="Adicionar"
-          mt={10}
-          textLoading="Carregando..."
-          loading={isLoading}
-          onPress={handleSubmit(handleAddSamplePoints)}
-        />
-      </Container>
+          <Button
+            type="PRIMARY"
+            title="Adicionar"
+            mt={10}
+            textLoading="Carregando..."
+            loading={isLoading}
+            onPress={handleSubmit(handleAddSamplePoints)}
+          />
+        </Container>
+      </KeyboardAvoidingView>
     </>
   );
 }
