@@ -1,19 +1,51 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import Geolocation from 'react-native-geolocation-service';
 
 import {Marker, type Region} from 'react-native-maps';
 
 import Button from '../../components/Button';
 import Map from '../../components/Map';
 import Loading from '../../components/Loading';
+import NotLocation from '../../components/NotLocation';
 
 import {Container, ContentButtons} from './styles';
 
 export default function Home() {
+  const [initialRegion, setInitialRegion] = useState<Region | undefined>();
+  const [isAuthorizationAccessLocation, setIsAuthorizationAccessLocation] =
+    useState(true);
+
+  useEffect(() => {
+    const requestLocationPermission = async () => {
+      await Geolocation.requestAuthorization('always');
+      Geolocation.getCurrentPosition(
+        position => {
+          setInitialRegion({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: 0.005,
+            longitudeDelta: 0.005,
+          });
+          setIsAuthorizationAccessLocation(true);
+        },
+        error => {
+          if (error.code === 1) {
+            setIsAuthorizationAccessLocation(false);
+          }
+          console.log(error.code);
+        },
+      );
+    };
+
+    requestLocationPermission();
+  }, []);
   return (
     <Container>
-      {/* {initialRegion ? (
+      {!isAuthorizationAccessLocation ? (
+        <NotLocation />
+      ) : initialRegion ? (
         <Map initialRegion={initialRegion}>
-          {savedNotes?.map((e) => (
+          {/* {savedNotes?.map((e) => (
             <Marker
               key={e.datetime}
               coordinate={{
@@ -26,11 +58,11 @@ export default function Home() {
               description={e.annotation}
               pinColor={e.synced === 'true' ? 'gray' : 'green'}
             />
-          ))}
+          ))} */}
         </Map>
       ) : (
         <Loading title="Carregando mapa..." />
-      )} */}
+      )}
 
       <ContentButtons>
         <Button
