@@ -1220,6 +1220,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hookform/resolvers@^3.3.2":
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-3.3.2.tgz#5c40f06fe8137390b071d961c66d27ee8f76f3bc"
+  integrity sha512-Tw+GGPnBp+5DOsSg4ek3LCPgkBOuOgS5DsDV7qsWNH9LZc433kgsWICjlsh2J9p04H2K66hsXPPb9qn9ILdUtA==
+
 "@humanwhocodes/config-array@^0.11.13":
   version "0.11.13"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.13.tgz#075dc9684f40a531d9b26b0822153c1e832ee297"
@@ -3375,6 +3380,11 @@ expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
+fast-base64-decode@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fast-base64-decode/-/fast-base64-decode-1.0.0.tgz#b434a0dd7d92b12b43f26819300d2dafb83ee418"
+  integrity sha512-qwaScUgUGBYeDNRnbc/KyllVU88Jk1pRHPStuF/lO7B0/RTRLj7U0lkdTAutlBblY08rwZDff6tNU9cjv6j//Q==
+
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
@@ -5161,6 +5171,11 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.6"
 
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -5617,6 +5632,11 @@ prop-types@^15.8.1:
     object-assign "^4.1.1"
     react-is "^16.13.1"
 
+property-expr@^2.0.5:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.6.tgz#f77bc00d5928a6c748414ad12882e83f24aec1e8"
+  integrity sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==
+
 punycode@^2.1.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
@@ -5667,6 +5687,11 @@ react-freeze@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-freeze/-/react-freeze-1.0.3.tgz#5e3ca90e682fed1d73a7cb50c2c7402b3e85618d"
   integrity sha512-ZnXwLQnGzrDpHBHiC56TXFXvmolPeMjTn1UOm610M4EXGzbEDR7oOIyS2ZiItgbs6eZc4oU/a0hpk8PrcKvv5g==
 
+react-hook-form@^7.48.2:
+  version "7.48.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.48.2.tgz#01150354d2be61412ff56a030b62a119283b9935"
+  integrity sha512-H0T2InFQb1hX7qKtDIZmvpU1Xfn/bdahWBN1fH19gSe4bBEqTfmlr7H3XWTaVtiK4/tpPaI1F3355GPMZYge+A==
+
 "react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0, react-is@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.2.0.tgz#199431eeaaa2e09f86427efbb4f1473edb47609b"
@@ -5686,6 +5711,13 @@ react-native-geolocation-service@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-5.3.1.tgz#4ce1017789da6fdfcf7576eb6f59435622af4289"
   integrity sha512-LTXPtPNmrdhx+yeWG47sAaCgQc3nG1z+HLLHlhK/5YfOgfLcAb9HAkhREPjQKPZOUx8pKZMIpdGFUGfJYtimXQ==
+
+react-native-get-random-values@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-get-random-values/-/react-native-get-random-values-1.9.0.tgz#6cb30511c406922e75fe73833dc1812a85bfb37e"
+  integrity sha512-+29IR2oxzxNVeaRwCqGZ9ABadzMI8SLTBidrIDXPOkKnm5+kEmLt34QKM4JV+d2usPErvKyS85le0OmGTHnyWQ==
+  dependencies:
+    fast-base64-decode "^1.0.0"
 
 react-native-maps@^1.8.0:
   version "1.8.0"
@@ -6450,6 +6482,11 @@ through2@^2.0.1:
     readable-stream "~2.3.6"
     xtend "~4.0.1"
 
+tiny-case@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tiny-case/-/tiny-case-1.0.3.tgz#d980d66bc72b5d5a9ca86fb7c9ffdb9c898ddd03"
+  integrity sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==
+
 tmpl@1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
@@ -6471,6 +6508,11 @@ toidentifier@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.1.tgz#3be34321a88a820ed1bd80dfaa33e479fbb8dd35"
   integrity sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==
+
+toposort@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+  integrity sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==
 
 tr46@~0.0.3:
   version "0.0.3"
@@ -6520,6 +6562,11 @@ type-fest@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.7.1.tgz#8dda65feaf03ed78f0a3f9678f1869147f7c5c48"
   integrity sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==
+
+type-fest@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.19.0.tgz#88068015bb33036a598b952e55e9311a60fd3a9b"
+  integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
 typed-array-buffer@^1.0.0:
   version "1.0.0"
@@ -6655,6 +6702,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
+
+uuid@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.1.tgz#e188d4c8853cc722220392c424cd637f32293f30"
+  integrity sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
 
 v8-to-istanbul@^9.0.1:
   version "9.1.3"
@@ -6903,3 +6955,13 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+yup@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-1.3.2.tgz#afffc458f1513ed386e6aaf4bcaa4e67a9e270dc"
+  integrity sha512-6KCM971iQtJ+/KUaHdrhVr2LDkfhBtFPRnsG1P8F4q3uUVQ2RfEM9xekpha9aA4GXWJevjM10eDcPQ1FfWlmaQ==
+  dependencies:
+    property-expr "^2.0.5"
+    tiny-case "^1.0.3"
+    toposort "^2.0.2"
+    type-fest "^2.19.0"
