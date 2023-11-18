@@ -5,12 +5,12 @@ import {ThemeProvider} from 'styled-components/native';
 
 import theme from './src/theme';
 
-import AddAnnotation from './src/screens/AddAnnotation';
+import {Routes} from './src/routes';
 
 function App(): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
-      <AddAnnotation />
+      <Routes />
     </ThemeProvider>
   );
 }

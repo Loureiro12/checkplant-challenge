@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Geolocation from 'react-native-geolocation-service';
-
+import {useNavigation} from '@react-navigation/native';
 import {Marker, type Region} from 'react-native-maps';
+
+import {AppNavigatorRoutesProps} from '../../routes/app.routes';
 
 import Button from '../../components/Button';
 import Map from '../../components/Map';
@@ -11,6 +13,8 @@ import NotLocation from '../../components/NotLocation';
 import {Container, ContentButtons} from './styles';
 
 export default function Home() {
+  const navigation = useNavigation<AppNavigatorRoutesProps>();
+
   const [initialRegion, setInitialRegion] = useState<Region | undefined>();
   const [isAuthorizationAccessLocation, setIsAuthorizationAccessLocation] =
     useState(true);
@@ -68,9 +72,9 @@ export default function Home() {
         <Button
           type="PRIMARY"
           title="Adicionar"
-          // onPress={() => {
-          //   navigation.navigate('AddAnnotation');
-          // }}
+          onPress={() => {
+            navigation.navigate('AddAnnotation');
+          }}
         />
         <Button
           type="SECONDARY"

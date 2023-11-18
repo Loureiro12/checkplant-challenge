@@ -10,10 +10,10 @@ interface HeaderProps {
 }
 
 export default function Header({title}: HeaderProps) {
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
 
   function handleGoBack() {
-    // navigation.goBack();
+    navigation.goBack();
   }
   return (
     <>
