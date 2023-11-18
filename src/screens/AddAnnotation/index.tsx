@@ -106,6 +106,8 @@ export default function AddAnnotation() {
                 value={value}
                 messageError={errors.annotation?.message}
                 onSubmitEditing={handleSubmit(handleAddSamplePoints)}
+                multiline={true}
+                numberOfLines={4}
               />
             )}
           />

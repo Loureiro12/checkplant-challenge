@@ -8,7 +8,7 @@ interface Props {
 export const Container = styled(TextInput)<Props>`
   flex: 1;
 
-  max-height: 56px;
+  max-height: 200px;
   min-height: 56px;
 
   background-color: ${({theme}) => theme.COLORS.GRAY_700};

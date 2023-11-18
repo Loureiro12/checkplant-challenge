@@ -79,6 +79,7 @@ export default function Home() {
         'Erro',
         'Para realizar a sincronização você deve estar conectado a internet!',
       );
+      setLoadingSyncData(false);
       return;
     }
 
