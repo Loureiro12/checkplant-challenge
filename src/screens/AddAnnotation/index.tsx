@@ -5,13 +5,17 @@ import * as yup from 'yup';
 import {Controller, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import 'react-native-get-random-values';
+import Geolocation from 'react-native-geolocation-service';
 import {v4 as uuidv4} from 'uuid';
 
-// import {useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
+
+import {useRealm} from '../../libs/realm/index';
+import {Annotation} from '../../libs/realm/schemas/Annotation';
 
 import {Container} from './styles';
 
@@ -26,8 +30,8 @@ const formSchema = yup
   .required();
 
 export default function AddAnnotation() {
-  // const realm = useRealm();
-  // const {goBack} = useNavigation();
+  const realm = useRealm();
+  const {goBack} = useNavigation();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -42,18 +46,32 @@ export default function AddAnnotation() {
   async function handleAddSamplePoints({annotation}: FormDataProps) {
     try {
       setIsLoading(true);
-
-      // realm.write(() => {
-      //   realm.create('Annotation', Annotation.generate({
-      //     id: uuidv4(),
-      //     synced: 'false',
-      //     latitude: location.coords.latitude.toString(),
-      //     longitude: location.coords.longitude.toString(),
-      //     annotation,
-      //     datetime: moment().format('YYYY-MM-DD HH:mm:ss'),
-      //   }));
-      // });
-      // goBack();
+      await Geolocation.getCurrentPosition(
+        position => {
+          realm.write(() => {
+            realm.create(
+              'Annotation',
+              Annotation.generate({
+                id: uuidv4(),
+                synced: 'false',
+                latitude: position.coords.latitude.toString(),
+                longitude: position.coords.longitude.toString(),
+                annotation,
+                datetime: moment().format('YYYY-MM-DD HH:mm:ss'),
+              }),
+            );
+          });
+          goBack();
+        },
+        error => {
+          if (error.code === 1) {
+            Alert.alert(
+              'Erro',
+              'Para adicionar uma anotação, é necessário permitir o acesso à localização.',
+            );
+          }
+        },
+      );
     } catch (error) {
       Alert.alert(
         'Erro',

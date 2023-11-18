@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     const requestLocationPermission = async () => {
       await Geolocation.requestAuthorization('always');
-      Geolocation.getCurrentPosition(
+      await Geolocation.getCurrentPosition(
         position => {
           setInitialRegion({
             latitude: position.coords.latitude,
@@ -36,7 +36,6 @@ export default function Home() {
           if (error.code === 1) {
             setIsAuthorizationAccessLocation(false);
           }
-          console.log(error.code);
         },
       );
     };
