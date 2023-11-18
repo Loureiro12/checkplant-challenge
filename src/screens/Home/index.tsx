@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Alert} from 'react-native';
+import {Alert, PermissionsAndroid, Platform} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {Marker, type Region} from 'react-native-maps';
@@ -134,6 +134,43 @@ export default function Home() {
 
   useEffect(() => {
     const requestLocationPermission = async () => {
+      if (Platform.OS !== 'ios') {
+        try {
+          const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+            {
+              title: 'Permissão de Localização',
+              message: 'Este aplicativo precisa acessar sua localização.',
+              buttonPositive: 'OK',
+            },
+          );
+
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            await Geolocation.getCurrentPosition(
+              position => {
+                setInitialRegion({
+                  latitude: position.coords.latitude,
+                  longitude: position.coords.longitude,
+                  latitudeDelta: 0.005,
+                  longitudeDelta: 0.005,
+                });
+                setIsAuthorizationAccessLocation(true);
+              },
+              error => {
+                console.log('error', error);
+                if (error.code === 1) {
+                  setIsAuthorizationAccessLocation(false);
+                }
+              },
+            );
+          } else {
+            setIsAuthorizationAccessLocation(false);
+          }
+        } catch (error) {
+          setIsAuthorizationAccessLocation(false);
+        }
+        return;
+      }
       await Geolocation.requestAuthorization('always');
       await Geolocation.getCurrentPosition(
         position => {
